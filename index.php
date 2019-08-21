@@ -25,3 +25,10 @@ if($message['forward_from']['id']>0) {
         'message_id'=>$message['message_id']
     ]);
 }
+
+if($text=='/test') {
+    $telegram->deleteMessage([
+        'chat_id'=>$message['chat']['id'],
+        'text'=>'text'
+    ]);
+}
