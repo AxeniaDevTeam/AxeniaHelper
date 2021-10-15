@@ -4,13 +4,11 @@ class Service
 {
     private $telegram;
     private $redis;
-    private $chat_id;
 
     public function __construct($telegram)
     {
         $this->redis = new Redis();
         $this->redis->connect('127.0.0.1', 6379);
-
         $this->telegram = $telegram;
         $this->chat_id=(!is_null($telegram->Callback_Data()))?$telegram->Callback_Query()['from']['id']:$telegram->ChatID();
     }
